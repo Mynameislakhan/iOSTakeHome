@@ -11,7 +11,18 @@ import SwiftUI
 struct _5_iOSTakeHomeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                PeopleView()
+                    .tabItem {
+                        Symbols.person
+                        Text("Home")
+                    }
+                SettingsView()
+                    .tabItem {
+                        Symbols.gear
+                        Text("Settings")
+                    }
+            }
         }
     }
 }

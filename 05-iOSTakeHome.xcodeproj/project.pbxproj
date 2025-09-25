@@ -29,12 +29,66 @@
 		80C337D82E781C3500CA359C /* 05-iOSTakeHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "05-iOSTakeHomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		80C337C32E781C2F00CA359C /* 05-iOSTakeHome */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "05-iOSTakeHome";
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		80597C2A2E7B066700B81BC3 /* Exceptions for "05-iOSTakeHome" folder in "05-iOSTakeHomeTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Base/API/Endpoint.swift,
+				Base/API/NetworkingManager.swift,
+				Base/Haptics/HapticsManager.swift,
+				Base/Mapper/StaticJSONMapper.swift,
+				Base/Model/Models.swift,
+				Base/UserDefaults/UserDefaultKeys.swift,
+				Base/Views/CheckmarkPopoverView.swift,
+				Base/Views/PillView.swift,
+				Features/Create/Model/NewPerson.swift,
+				Features/Create/Validator/CreateValidator.swift,
+				"Features/Create/View Model/CreateViewModel.swift",
+				Features/Create/Views/CreateView.swift,
+				Features/Detail/Model/UserDetailResponse.swift,
+				"Features/Detail/View Model/DetailViewModel.swift",
+				Features/Detail/Views/DetailView.swift,
+				Features/People/Model/UsersResponse.swift,
+				"Features/People/View Model/PeopleViewModel.swift",
+				Features/People/Views/PeopleView.swift,
+				Features/People/Views/PersonItemView.swift,
+				Features/Settings/Views/SettingsView.swift,
+				Resources/JSON/SingleUserData.json,
+				Resources/JSON/UserStaticData.json,
+			);
+			target = 80C337CD2E781C3500CA359C /* 05-iOSTakeHomeTests */;
 		};
+		80597C2B2E7B066700B81BC3 /* Exceptions for "05-iOSTakeHome" folder in "05-iOSTakeHomeUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Base/API/Endpoint.swift,
+				Base/API/NetworkingManager.swift,
+				Base/Haptics/HapticsManager.swift,
+				Base/Mapper/StaticJSONMapper.swift,
+				Base/Model/Models.swift,
+				Base/UserDefaults/UserDefaultKeys.swift,
+				Base/Views/CheckmarkPopoverView.swift,
+				Base/Views/PillView.swift,
+				Features/Create/Model/NewPerson.swift,
+				Features/Create/Validator/CreateValidator.swift,
+				"Features/Create/View Model/CreateViewModel.swift",
+				Features/Create/Views/CreateView.swift,
+				Features/Detail/Model/UserDetailResponse.swift,
+				"Features/Detail/View Model/DetailViewModel.swift",
+				Features/Detail/Views/DetailView.swift,
+				Features/People/Model/UsersResponse.swift,
+				"Features/People/View Model/PeopleViewModel.swift",
+				Features/People/Views/PeopleView.swift,
+				Features/People/Views/PersonItemView.swift,
+				Features/Settings/Views/SettingsView.swift,
+				Resources/JSON/SingleUserData.json,
+				Resources/JSON/UserStaticData.json,
+			);
+			target = 80C337D72E781C3500CA359C /* 05-iOSTakeHomeUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		80C337D12E781C3500CA359C /* 05-iOSTakeHomeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "05-iOSTakeHomeTests";
@@ -43,6 +97,15 @@
 		80C337DB2E781C3500CA359C /* 05-iOSTakeHomeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "05-iOSTakeHomeUITests";
+			sourceTree = "<group>";
+		};
+		80C338082E78249200CA359C /* 05-iOSTakeHome */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				80597C2A2E7B066700B81BC3 /* Exceptions for "05-iOSTakeHome" folder in "05-iOSTakeHomeTests" target */,
+				80597C2B2E7B066700B81BC3 /* Exceptions for "05-iOSTakeHome" folder in "05-iOSTakeHomeUITests" target */,
+			);
+			path = "05-iOSTakeHome";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +138,7 @@
 		80C337B82E781C2F00CA359C = {
 			isa = PBXGroup;
 			children = (
-				80C337C32E781C2F00CA359C /* 05-iOSTakeHome */,
+				80C338082E78249200CA359C /* 05-iOSTakeHome */,
 				80C337D12E781C3500CA359C /* 05-iOSTakeHomeTests */,
 				80C337DB2E781C3500CA359C /* 05-iOSTakeHomeUITests */,
 				80C337C22E781C2F00CA359C /* Products */,
@@ -108,7 +171,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				80C337C32E781C2F00CA359C /* 05-iOSTakeHome */,
+				80C338082E78249200CA359C /* 05-iOSTakeHome */,
 			);
 			name = "05-iOSTakeHome";
 			packageProductDependencies = (
@@ -400,9 +463,9 @@
 				DEVELOPMENT_TEAM = WRMS2W52GP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-5-iOSTakeHome-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,9 +491,9 @@
 				DEVELOPMENT_TEAM = WRMS2W52GP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-5-iOSTakeHome-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
