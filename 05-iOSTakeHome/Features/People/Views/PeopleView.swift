@@ -27,21 +27,18 @@ struct PeopleView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(vm.users, id: \.id) { user in
-//                                NavigationLink {
-//                                    DetailView()
-//                                } Label: {
-//                                    PersonItemView(user: user)
-//                                }
                                 NavigationLink {
                                     DetailView(userId: user.id)
                                 } label: {
                                     PersonItemView(user: user)
-                                        .onAppear {
+                                        .task {
                                             if vm.hasReachedEnd(of: user) && !vm.isFetching {
-                                                vm.fetchNextSetOfUsers()
+                                                await vm.fetchNextSetOfUsers()
                                             }
                                         }
                                 }
+
+                                
                             }
                         }
                         .padding()
@@ -63,15 +60,9 @@ struct PeopleView: View {
                     refresh
                 }
             }
-            .onAppear {
-//                do {
-//                    let res = try StaticJSONMapper.decode(file: "UserStaticData.json", type: UsersResponse.self)
-//                    users = res.data
-//                } catch {
-//                    print(error)
-//                }
+            .task {
                 if !hasAppeared {
-                    vm.fetchUsers()
+                    await vm.fetchUsers()
                     hasAppeared = true
                 }
                 
@@ -86,7 +77,9 @@ struct PeopleView: View {
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.fetchUsers()
+                    Task {
+                        await vm.fetchUsers()
+                    }
                 }
             }
             .overlay {
@@ -130,7 +123,9 @@ private extension PeopleView {
     
     var refresh: some View {
         Button {
-            vm.fetchUsers()
+            Task {
+                await vm.fetchUsers()
+            }
         } label: {
             Symbols.refresh
                 .font(

@@ -24,68 +24,7 @@ final class PeopleViewModel: ObservableObject {
     var isFetching: Bool {
         viewState == .fetching
     }
-/*
-    func fetchUsers() {
-        isLoading = true
-        NetworkingManager.shared.request(.people, type: UsersResponse.self) { [weak self] res in
-            DispatchQueue.main.async {
-                defer {self?.isLoading = false}
-                switch res {
-                case .success(let response):
-                    self?.users = response.data
-                case .failure(let error):
-                    self?.hasError = true
-                    self?.error = error as? NetworkingManager.NetworkingError
-                }
-            }
-        }
-    }
-*/
-    func fetchUsers() {
-        reset()
-        viewState = .loading
-        defer { viewState = .finished }
-        NetworkingManager.shared.request(.people(page: page), type: UsersResponse.self) { [weak self] res in
-            DispatchQueue.main.async {
-                switch res {
-                case .success(let response):
-                    self?.totalPages = response.totalPages
-                    self?.users = response.data
-                case .failure(let error):
-                    self?.hasError = true
-                    if let networkingError = error as? NetworkingManager.NetworkingError {
-                        self?.error = networkingError
-                    } else {
-                        self?.error = .custom(error: error)
-                    }
-                }
-            }
-        }
-    }
     
-    func fetchNextSetOfUsers() {
-        guard page != totalPages else { return }
-        viewState = .fetching
-        defer { viewState = .finished }
-        page += 1
-        NetworkingManager.shared.request(.people(page: page), type: UsersResponse.self) { [weak self] res in
-            DispatchQueue.main.async {
-                switch res {
-                case .success(let response):
-                    self?.totalPages = response.totalPages
-                    self?.users += response.data
-                case .failure(let error):
-                    self?.hasError = true
-                    if let networkingError = error as? NetworkingManager.NetworkingError {
-                        self?.error = networkingError
-                    } else {
-                        self?.error = .custom(error: error)
-                    }
-                }
-            }
-        }
-    }
-/*
     @MainActor
     func fetchUsers() async {
         reset()
@@ -129,7 +68,7 @@ final class PeopleViewModel: ObservableObject {
             }
         }
     }
-*/
+    
     func hasReachedEnd(of user: User) -> Bool {
         users.last?.id == user.id
     }

@@ -13,9 +13,6 @@ struct PersonItemView: View {
     
     var body: some View {
         VStack(spacing: .zero) {
-//            Rectangle()
-//                .fill(.blue)
-//                .frame(height: 130)
             AsyncImage(url: .init(string: user.avatar)) { image in
                 image
                     .resizable()
